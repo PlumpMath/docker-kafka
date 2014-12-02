@@ -1,0 +1,14 @@
+zookeeper:
+  image: jplock/zookeeper
+  ports:
+    - "12181:2181"
+    - "12888:2888"
+    - "13888:3888"
+  hostname: zookeeper
+kafka:
+  build: .
+  ports:
+    - "19092:9092"
+  hostname: kafka
+  links:
+    - zookeeper
